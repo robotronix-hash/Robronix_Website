@@ -4,7 +4,7 @@
    ===================================================================== */
 
 // 🛑 CHANGE THIS TO YOUR ACTUAL GITHUB USERNAME AND REPO NAME
-const REPO = 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME'; 
+const REPO = 'robotronix-hash/robotronix_website'; 
 
 let GITHUB_TOKEN = localStorage.getItem('gh_admin_token') || null;
 let currentDataSha = '';
