@@ -3,7 +3,9 @@
    Data: Commits directly to GitHub via the REST API.
    ===================================================================== */
 
-const REPO = 'robotronix-hash/robotronix_website'; 
+// 🛑 CHANGE THIS TO YOUR ACTUAL GITHUB USERNAME AND REPO NAME
+const REPO = 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME'; 
+
 let GITHUB_TOKEN = localStorage.getItem('gh_admin_token') || null;
 let currentDataSha = '';
 let draft = [];
@@ -80,7 +82,10 @@ async function ghFetch(path, options = {}) {
         'Content-Type': 'application/json'
     };
     const res = await fetch(url, { ...options, headers });
-    if(!res.ok) throw new Error(await res.text());
+    if(!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.message || `GitHub Error: ${res.status}`);
+    }
     return res.json();
 }
 
@@ -123,7 +128,7 @@ $("admin-login-btn")?.addEventListener("click", async () => {
         await loadFromGitHub();
     } catch(e) {
         GITHUB_TOKEN = null;
-        $("admin-error").textContent = "Invalid token or no write access to the repository.";
+        $("admin-error").textContent = `Login failed: ${e.message}. Check token permissions and repo name.`;
     } finally {
         btn.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> LOG IN`;
     }
