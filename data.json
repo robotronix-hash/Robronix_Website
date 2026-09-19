@@ -1,0 +1,217 @@
+[
+  {
+    "role": "Club Director",
+    "name": "Ms. Shravani Gadkari",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Shravani Gadkari",
+    "members": []
+  },
+  {
+    "role": "RoboVision Head",
+    "name": "Mr. Kaustubh Walunj",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Kaustubh Walunj",
+    "members": []
+  },
+  {
+    "role": "Innovation Vice Lead",
+    "name": "Mr. Prasad Patankar",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Prasad Patankar",
+    "members": []
+  },
+  {
+    "role": "RoboOps Head",
+    "name": "Mr. Atharva Inamdar",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Atharva Inamdar",
+    "members": []
+  },
+  {
+    "role": "Ladies Secretary",
+    "name": "Ms. Rutwi Chaudhari",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Rutwi Chaudhari",
+    "members": []
+  },
+  {
+    "role": "Coordination Head",
+    "name": "Mr. Himanshu Bendale",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Himanshu Bendale",
+    "members": []
+  },
+  {
+    "role": "Finance & Resources Lead",
+    "name": "Mr. Vedang Deshpande",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Vedang Deshpande",
+    "members": []
+  },
+  {
+    "role": "Technology & Innovation Lead",
+    "name": "Mr. Shrivardhan Bandgar",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Shrivardhan Bandgar",
+    "members": [
+      {
+        "name": "Mr. Aryan Hatagle",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Aryan Hatagle"
+      },
+      {
+        "name": "Mr. Chitranjan Bhalerao",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Chitranjan Bhalerao"
+      },
+      {
+        "name": "Ms. Kunika Daiwalkar",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Kunika Daiwalkar"
+      },
+      {
+        "name": "Mr. Sujal Kendre",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Sujal Kendre"
+      }
+    ]
+  },
+  {
+    "role": "Events & Operations Lead",
+    "name": "Mr. Vedant Jadhav",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Vedant Jadhav",
+    "members": [
+      {
+        "name": "Mr. Aditya Thombare",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Aditya Thombare"
+      },
+      {
+        "name": "Ms. Soham Gore",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Soham Gore"
+      },
+      {
+        "name": "Ms. Sampriti Palande",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Sampriti Palande"
+      },
+      {
+        "name": "Ms. Tina Waghode",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Tina Waghode"
+      },
+      {
+        "name": "Ms. Samruddhi Salunke",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Samruddhi Salunke"
+      },
+      {
+        "name": "Ms. Anuradha Jadhav",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Anuradha Jadhav"
+      },
+      {
+        "name": "Ms. Trupti Gawande",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Trupti Gawande"
+      }
+    ]
+  },
+  {
+    "role": "Digital Media & Outreach Lead",
+    "name": "Mr. Aditya Waghmare",
+    "img": "",
+    "instagram": "#",
+    "instagramHandle": "@username",
+    "linkedin": "#",
+    "linkedinHandle": "Aditya Waghmare",
+    "members": [
+      {
+        "name": "Mr. Ishwar Gaikwad",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Ishwar Gaikwad"
+      },
+      {
+        "name": "Ms. Shweta Shirture",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Shweta Shirture"
+      },
+      {
+        "name": "Mr. Faisal Ansari",
+        "img": "",
+        "instagram": "#",
+        "instagramHandle": "@username",
+        "linkedin": "#",
+        "linkedinHandle": "Faisal Ansari"
+      }
+    ]
+  }
+]

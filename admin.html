@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin · Robotronix Club</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" fetchpriority="high">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+    <!-- Loading state -->
+    <div class="admin-boot" id="admin-boot">
+        <i class="fa-solid fa-circle-notch fa-spin"></i> Checking your session…
+    </div>
+
+    <!-- ===================== LOGIN ===================== -->
+    <div class="admin-overlay" id="admin-login" aria-hidden="true">
+        <div class="admin-login-card">
+            <h3><i class="fa-solid fa-lock"></i> ADMIN LOGIN</h3>
+            <p class="hint">Enter your GitHub Access Token to edit the site.</p>
+
+            <div class="admin-field">
+                <label for="admin-token">Personal Access Token</label>
+                <input type="password" id="admin-token" autocomplete="current-password" placeholder="github_pat_...">
+            </div>
+
+            <div class="admin-error" id="admin-error"></div>
+
+            <div class="admin-login-actions">
+                <button class="admin-btn primary" id="admin-login-btn"><i class="fa-solid fa-right-to-bracket"></i> LOG IN</button>
+                <a class="admin-btn" href="index.html">CANCEL</a>
+            </div>
+            <a class="admin-link-btn" href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">How to get a token?</a>
+        </div>
+    </div>
+
+    <!-- ===================== PANEL ===================== -->
+    <div class="admin-panel" id="admin-panel" aria-hidden="true">
+        <div class="admin-panel-head">
+            <h3><i class="fa-solid fa-sliders"></i> ROBOTRONIX ADMIN</h3>
+            <div class="admin-toolbar">
+                <a class="admin-btn" href="index.html" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i> VIEW SITE</a>
+                <button class="admin-btn" id="admin-add-position"><i class="fa-solid fa-plus"></i> ADD POSITION</button>
+                <button class="admin-btn" id="admin-seed"><i class="fa-solid fa-seedling"></i> SEED FROM data.json</button>
+                <button class="admin-btn" id="admin-export"><i class="fa-solid fa-download"></i> BACKUP JSON</button>
+                <button class="admin-btn primary" id="admin-save"><i class="fa-solid fa-floppy-disk"></i> SAVE &amp; PUBLISH</button>
+                <button class="admin-btn" id="admin-logout"><i class="fa-solid fa-right-from-bracket"></i> LOG OUT</button>
+            </div>
+        </div>
+
+        <div class="admin-panel-body">
+            <div class="admin-note">
+                <strong>Git-Backed Live Editing.</strong> Photos and text edits are pushed directly to your GitHub repository when you press <strong>SAVE &amp; PUBLISH</strong>. Vercel will automatically rebuild the site within ~60 seconds.
+            </div>
+            <div id="admin-positions"></div>
+        </div>
+    </div>
+
+    <div class="admin-toast" id="admin-toast"></div>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
