@@ -3,358 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotronix Club | MMIT</title>
-    <meta name="description" content="Robotronix Club — the mechatronics and automation student body of MMIT, Pune.">
+    <title>Robotronix | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00adb5;
+            --bg: #111;
+            --card-bg: #1e1e1e;
+            --text: #eee;
+            --text-muted: #aaa;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+        }
+        header h1 { margin: 0; color: var(--primary); }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        /* Grid Layouts */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" fetchpriority="high">
-
-    <link rel="stylesheet" href="style.css">
+        /* Card Styling */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .card h3 { margin: 10px 0 5px 0; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 15px 0; }
+        
+        .card a {
+            display: inline-block;
+            margin: 0 5px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .card a:hover { text-decoration: underline; }
+        
+        /* Event Specific */
+        .event-card {
+            text-align: left;
+        }
+        .event-card img {
+            height: 150px;
+        }
+        .event-btn {
+            display: block;
+            background: var(--primary);
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .event-btn:hover { text-decoration: none; opacity: 0.9; }
+        
+        .loading { text-align: center; color: var(--text-muted); font-style: italic; }
+    </style>
 </head>
 <body>
 
-    <!-- Reading / scroll progress bar -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+    <header>
+        <h1>ROBOTRONIX</h1>
+        <p>Innovating the Future of Robotics</p>
+    </header>
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="brutal-nav slide-down" id="main-nav">
-        <div class="nav-left">
-            <a href="#home" class="logo">ROBOTRONIX</a>
-        </div>
+    <div class="container">
+        
+        <!-- TEAM SECTION -->
+        <section>
+            <h2>Meet Our Team</h2>
+            <div id="public-members-container" class="grid-container">
+                <p class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading team members...</p>
+            </div>
+        </section>
 
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-pill">Home</a></li>
-            <li><a href="#about" class="nav-pill">About</a></li>
-            <li><a href="#vision" class="nav-pill">Vision</a></li>
-            <li><a href="#events" class="nav-pill">Journey</a></li>
-            <li><a href="#team" class="nav-pill">Team</a></li>
-            <li><a href="#projects" class="nav-pill">Projects</a></li>
-        </ul>
+        <!-- EVENTS SECTION -->
+        <section>
+            <h2>Upcoming Events</h2>
+            <div id="public-events-container" class="grid-container">
+                <p class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading events...</p>
+            </div>
+        </section>
 
-        <!-- Social Icons & MMIT Button -->
-        <div class="nav-actions">
-            <a href="https://linkedin.com/" target="_blank" class="social-icon" title="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/robotronixclub.mmit" target="_blank" class="social-icon" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#join" class="btn-primary btn-nav">JOIN THE CLUB <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-    </nav>
-
-    <!-- Scroll-Spy Side Navigation -->
-    <div class="side-nav" id="side-nav">
-        <div class="side-nav-dots">
-            <a href="#home" class="side-dot active" data-label="INTRO"><span class="dot"></span></a>
-            <a href="#about" class="side-dot" data-label="ABOUT"><span class="dot"></span></a>
-            <a href="#vision" class="side-dot" data-label="VISION & MISSION"><span class="dot"></span></a>
-            <a href="#activities" class="side-dot" data-label="OUR ACTIVITIES"><span class="dot"></span></a>
-            <a href="#events" class="side-dot" data-label="JOURNEY"><span class="dot"></span></a>
-            <a href="#team" class="side-dot" data-label="CLUB STRUCTURE"><span class="dot"></span></a>
-            <a href="#projects" class="side-dot" data-label="PROJECTS"><span class="dot"></span></a>
-            <a href="#collab" class="side-dot" data-label="COLLABORATION"><span class="dot"></span></a>
-            <a href="#connect" class="side-dot" data-label="CONNECT WITH US"><span class="dot"></span></a>
-        </div>
     </div>
 
-    <!-- Responsive Hamburger Menu -->
-    <button class="menu-indicator" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-        <span class="menu-lines" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
-        <span class="menu-label">MENU</span>
-    </button>
+    <!-- FIREBASE CONNECTION & DISPLAY SCRIPT -->
+    <script type="module">
+        import { db } from './firebase-config.js';
+        import { collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    <!-- Back to top -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+        // 1. Fetch and Display Members
+        onSnapshot(query(collection(db, 'members'), orderBy('createdAt', 'desc')), (snapshot) => {
+            const container = document.getElementById('public-members-container');
+            if (snapshot.empty) {
+                container.innerHTML = '<p class="loading">No team members added yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = snapshot.docs.map(doc => {
+                const m = doc.data();
+                return `
+                    <div class="card">
+                        <img src="${m.photoUrl}" alt="${m.name}">
+                        <h3>${m.name}</h3>
+                        <p>${m.role}</p>
+                        <div>
+                            ${m.linkedin && m.linkedin !== '#' ? `<a href="${m.linkedin}" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>` : ''}
+                            ${m.instagram && m.instagram !== '#' ? `<a href="${m.instagram}" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        });
 
-    <!-- All Sections Overlay Menu -->
-    <div class="all-sections-overlay" id="all-sections-overlay">
-        <div class="all-sections-header">
-            <span>NAVIGATION</span>
-            <button id="close-all-sections" aria-label="Close menu">&times;</button>
-        </div>
-        <nav class="all-sections-list">
-            <a href="#home" class="all-sections-link">INTRO</a>
-            <a href="#about" class="all-sections-link">ABOUT</a>
-            <a href="#vision" class="all-sections-link">VISION & MISSION</a>
-            <a href="#activities" class="all-sections-link">OUR ACTIVITIES</a>
-            <a href="#team" class="all-sections-link">CLUB STRUCTURE</a>
-            <a href="#join" class="all-sections-link">CLUB MEMBERSHIP</a>
-            <a href="#events" class="all-sections-link">JOURNEY</a>
-            <a href="#projects" class="all-sections-link">PROJECTS</a>
-            <a href="#collab" class="all-sections-link">COLLABORATION</a>
-            <a href="#connect" class="all-sections-link">CONNECT WITH US</a>
-        </nav>
-    </div>
+        // 2. Fetch and Display Events
+        onSnapshot(query(collection(db, 'events'), orderBy('createdAt', 'desc')), (snapshot) => {
+            const container = document.getElementById('public-events-container');
+            if (snapshot.empty) {
+                container.innerHTML = '<p class="loading">No upcoming events at the moment.</p>';
+                return;
+            }
+            
+            container.innerHTML = snapshot.docs.map(doc => {
+                const ev = doc.data();
+                return `
+                    <div class="card event-card">
+                        <img src="${ev.bannerUrl}" alt="${ev.title}">
+                        <h3>${ev.title}</h3>
+                        <p style="color: var(--primary); font-weight: bold;"><i class="fa-regular fa-calendar"></i> ${ev.date}</p>
+                        <p>${ev.description}</p>
+                        ${ev.link && ev.link !== '#' ? `<a href="${ev.link}" target="_blank" class="event-btn">Learn More / Register</a>` : ''}
+                    </div>
+                `;
+            }).join('');
+        });
+    </script>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero theme-light">
-        <div class="hero-content">
-            <!-- MMIT MECHATRONICS is now a real button/link -->
-            <a href="https://mmit.edu.in/mechatronics-engineering/"
-               target="_blank" rel="noopener noreferrer"
-               class="badge badge-link scroll-reveal slide-up"
-               style="transition-delay: 0.1s;"
-               title="Visit the MMIT Mechatronics Engineering department">
-                <i class="fa-solid fa-bolt"></i> MMIT MECHATRONICS
-                <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.75rem;"></i>
-            </a>
-
-            <h1 class="hero-title scroll-reveal slide-up" style="transition-delay: 0.2s;">
-                Brains Behind <br> The Bots.
-            </h1>
-
-            <h2 class="hero-tagline scroll-reveal slide-up" style="transition-delay: 0.3s;">
-                A custom-built robotics ecosystem. No prerequisites. <br> No missing parts. Just show up and build.
-            </h2>
-
-            <div class="scroll-reveal slide-up hero-cta-row" style="transition-delay: 0.4s;">
-                <a href="#team" class="btn-primary">MEET THE TEAM <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#about" class="btn-secondary">LEARN MORE</a>
-            </div>
-
-            <a href="#about" class="scroll-cue scroll-reveal slide-up" style="transition-delay: 0.5s;">
-                <span class="cue-mouse"></span>
-                SCROLL
-            </a>
-        </div>
-    </section>
-
-    <!-- About The Club Section -->
-    <section id="about" class="section-container theme-light">
-        <div class="brutal-card scroll-reveal slide-up large-card">
-            <div class="card-header">
-                <h2>ONE DECISION AND YOU'RE DONE.</h2>
-            </div>
-            <div class="card-body split-body">
-                <div>
-                    <h3 class="huge-sub">Innovating at MMIT.</h3>
-                    <a href="https://www.mmit.edu.in/" target="_blank" class="btn-primary mt-4">VISIT MMIT <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-                <div class="desc-text">
-                    <p>The Robotronix Club is the mechatronics and automation student body of Marathwada Mitra Mandal's Institute of Technology. Founded by a small group of students who wanted to turn classroom theory into working machines.</p>
-                    <p>We run on a simple idea: build first, understand deeper. Members work in small project pods across robotics, embedded systems, IoT, and mechanical design. There's no prior experience required to join; there is an expectation that you'll show up and build.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision & Mission Section -->
-    <section id="vision" class="section-container theme-lime padding-huge">
-        <h2 class="section-title text-center scroll-reveal slide-up">VISION &amp; MISSION</h2>
-        <div class="grid-2">
-            <div class="brutal-card scroll-reveal slide-up">
-                <div class="card-icon"><i class="fa-solid fa-eye"></i></div>
-                <h3>VISION</h3>
-                <p>To build a thriving, self-sustaining ecosystem for hands-on learning in robotics at MMIT — one that closes the gap between what's taught in a mechatronics classroom and what it actually takes to design, wire, code, and ship a working automation system.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up" style="transition-delay: 0.1s;">
-                <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
-                <h3>MISSION</h3>
-                <p>To equip every member with practical, industry-relevant skills — embedded C/C++, IoT and sensor networks, CAD modeling, PCB design, and control systems — through collaborative, peer-led projects rather than lectures.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up">
-                <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-                <h3>WHAT WE VALUE</h3>
-                <p>Learning by building, honest failure over polished excuses, and open documentation so every project makes the next one easier. Seniors mentor juniors as a rule, not an exception.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up" style="transition-delay: 0.1s;">
-                <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
-                <h3>WHERE WE'RE HEADED</h3>
-                <p>Growing our competition footprint nationally, building a proper robotics lab on campus, and running an in-house incubation track for member-led robotics products and research.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Activities Section -->
-    <section id="activities" class="section-container theme-light">
-        <h2 class="section-title text-center scroll-reveal slide-up">HOW IT WORKS</h2>
-        <div class="grid-3">
-            <div class="brutal-card bg-lime scroll-reveal slide-up">
-                <h3><i class="fa-solid fa-robot"></i> BUILD PROJECTS</h3>
-                <p>Line-following bots, robotic arms, autonomous rovers and drones — member teams pick a problem and build a working prototype from scratch.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up" style="transition-delay: 0.1s;">
-                <h3><i class="fa-solid fa-chalkboard-user"></i> WORKSHOPS</h3>
-                <p>Hands-on sessions on Arduino &amp; embedded programming, sensor integration, PCB design, and CAD — run by seniors for anyone in the club.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up" style="transition-delay: 0.2s;">
-                <h3><i class="fa-solid fa-trophy"></i> COMPETITIONS</h3>
-                <p>We prepare and field teams for inter-college and national robotics competitions, hackathons, and ideathons throughout the year.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up">
-                <h3><i class="fa-solid fa-users-gear"></i> OPEN LABS</h3>
-                <p>Weekly open lab hours where any member can walk in, use the tools, and get help debugging their project from a senior.</p>
-            </div>
-            <div class="brutal-card scroll-reveal slide-up" style="transition-delay: 0.1s;">
-                <h3><i class="fa-solid fa-handshake"></i> INDUSTRY TALKS</h3>
-                <p>Sessions with alumni and industry engineers working in robotics, automation, and embedded systems to connect classroom skills to careers.</p>
-            </div>
-            <div class="brutal-card bg-lime scroll-reveal slide-up" style="transition-delay: 0.2s;">
-                <h3><i class="fa-solid fa-seedling"></i> ORIENTATION</h3>
-                <p>A guided first project for every new member so nobody joins and sits on the sidelines — you're building within your first month.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Journey / Events Section (Dark Theme) -->
-    <section id="events" class="section-container theme-dark padding-huge">
-        <h2 class="section-title text-center scroll-reveal slide-up text-white">OUR JOURNEY</h2>
-        <p class="text-center scroll-reveal slide-up text-gray" style="margin-bottom: 50px;">Key milestones in the club's story so far.</p>
-
-        <div class="grid-2">
-            <a href="#" class="brutal-card event-card scroll-reveal slide-left" data-event-link="inauguration" target="_blank" rel="noopener">
-                <span class="badge badge-lime">2026</span>
-                <h3>INAUGURATION OF ROBOTRONIX</h3>
-                <p>The official launch of the Robotronix Club at MMIT — where it all began.</p>
-                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-
-            <a href="#" class="brutal-card event-card ideathon-card scroll-reveal slide-right" data-event-link="ideathon" target="_blank" rel="noopener">
-                <span class="badge badge-lime">2029</span>
-                <h3>SDG IDEATHON 2029</h3>
-                <p>Our team's showcase at the SDG Ideathon, applying robotics and automation to sustainable development challenges.</p>
-                <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Core Committee Section -->
-    <section id="team" class="section-container theme-light">
-        <div class="team-header-row scroll-reveal slide-up">
-            <h2 class="section-title" style="margin-bottom: 0;">MEET THE TEAM</h2>
-            <div class="team-header-actions">
-                <button class="btn-secondary" id="view-all-members-btn">
-                    VIEW ALL DIRECTORY <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i>
-                </button>
-                <div class="slider-controls">
-                    <button class="brutal-icon-btn" id="slide-left-btn" aria-label="Scroll Left">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <button class="brutal-icon-btn" id="slide-right-btn" aria-label="Scroll Right">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Horizontal Scrolling Track -->
-        <div class="team-slider-container scroll-reveal slide-up">
-            <div class="team-slider" id="team-slider" tabindex="0" role="region" aria-label="Core committee, scroll horizontally">
-                <!-- head cards injected here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-container theme-lime padding-huge">
-        <h2 class="section-title text-center scroll-reveal slide-up">PROJECTS</h2>
-        <div class="brutal-card coming-soon-card scroll-reveal slide-up mx-auto" style="max-width: 800px; background: #fff;">
-            <div class="coming-soon-icon"><i class="fa-solid fa-hammer"></i></div>
-            <h3 class="huge-sub text-center">TO BE ANNOUNCED.</h3>
-            <p class="text-center" style="font-size: 1.2rem;">We're wiring up something worth showing. Club project write-ups, builds, and repos will land here shortly — check back soon.</p>
-        </div>
-    </section>
-
-    <!-- Collaboration Section -->
-    <section id="collab" class="section-container theme-light">
-        <div class="brutal-card collab-card bg-black text-white scroll-reveal slide-up">
-            <div class="collab-content">
-                <div class="badge badge-lime mb-3">PARTNERSHIP</div>
-                <h3 class="text-white">THE SMARTER WAY TO BUILD.</h3>
-                <p class="text-gray mt-3">Robotronix is proud to team up with MXESA on shared events, workshops, and cross-club initiatives — bringing more hands-on opportunities to students on both sides.</p>
-            </div>
-            <div class="collab-action">
-                <a href="https://www.mxesa.in/" target="_blank" rel="noopener noreferrer" class="btn-lime huge-btn">
-                    VISIT MXESA <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Connect With Us / Footer Section -->
-    <section id="connect" class="section-container theme-dark padding-huge footer-section">
-        <div class="footer-grid">
-            <div class="footer-left scroll-reveal slide-up">
-                <h2 class="text-white" style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">Your Ideas.<br>Handled.</h2>
-                <p class="text-gray" style="max-width: 400px; margin-bottom: 40px;">Mail your application to join the club, or reach out to us for collaborations and queries.</p>
-                <a href="mailto:robotronix@mmit.edu.in" class="btn-lime">robotronix@mmit.edu.in <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="footer-right scroll-reveal slide-up">
-                <div class="footer-links">
-                    <h4>NAVIGATION</h4>
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#activities">How It Works</a>
-                    <a href="#team">Team</a>
-                </div>
-                <div class="footer-socials">
-                    <h4>SOCIALS</h4>
-                    <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://www.instagram.com/robotronixclub.mmit" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                    <a href="https://mmit.edu.in/mechatronics-engineering/" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> MMIT Mechatronics</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom scroll-reveal slide-up">
-            <p>© 2026 Robotronix Club. All Rights Reserved.</p>
-            <p>
-                Crafted for MMIT. &nbsp;·&nbsp;
-                <a class="admin-link" href="admin.html">Admin</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- All Members Modal -->
-    <div class="members-modal" id="members-modal" aria-hidden="true">
-        <div class="members-modal-panel brutal-modal">
-            <div class="members-modal-header bg-lime">
-                <div>
-                    <span class="badge bg-black text-white">DATABASE</span>
-                    <h3 style="margin-top: 10px;">ALL CLUB MEMBERS</h3>
-                </div>
-                <button id="close-members-modal" class="brutal-icon-btn" aria-label="Close">&times;</button>
-            </div>
-            <div class="members-modal-meta">
-                <span><i class="fa-solid fa-circle" style="color: #000; font-size: 8px;"></i> ACTIVE DIRECTORY</span>
-                <input type="search" class="member-search" id="member-search" placeholder="Search name or role..." aria-label="Search members">
-                <span id="member-count-label" class="badge bg-black text-white">MEMBERS</span>
-            </div>
-            <div class="members-modal-list" id="members-modal-list" data-lenis-prevent>
-                <!-- populated by script.js -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Cute Corner Robot Mascot -->
-    <div class="robot-mascot" id="robot-mascot" aria-hidden="true">
-        <div class="robot-head" id="robot-head">
-            <div class="robot-earpad robot-earpad-left"></div>
-            <div class="robot-earpad robot-earpad-right"></div>
-            <div class="robot-screen">
-                <div class="robot-eye" id="robot-eye-left"><span class="robot-pupil"></span></div>
-                <div class="robot-eye" id="robot-eye-right"><span class="robot-pupil"></span></div>
-                <div class="robot-smile"></div>
-            </div>
-            <div class="robot-mic"></div>
-        </div>
-    </div>
-
-    <!-- Lenis Smooth Scroll CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-    <script type="module" src="script.js"></script>
 </body>
 </html>
