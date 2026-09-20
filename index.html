@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="pre-inaugurate">
 
     <!-- Reading / scroll progress bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
@@ -40,13 +40,13 @@
 
         <!-- Social Icons & MMIT Button -->
         <div class="nav-actions">
-            <a href="https://linkedin.com/" target="_blank" class="social-icon" title="LinkedIn">
+            <a href="https://www.linkedin.com/company/robotronix-club/" target="_blank" class="social-icon" title="LinkedIn">
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
             <a href="https://www.instagram.com/robotronixclub.mmit" target="_blank" class="social-icon" title="Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="#join" class="btn-primary btn-nav">JOIN THE CLUB <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#connect" class="btn-primary btn-nav">JOIN THE CLUB <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </nav>
 
@@ -80,6 +80,20 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!-- Inauguration Trigger (for display screen on inauguration day) -->
+    <button class="inaugurate-btn" id="inaugurate-btn" aria-label="Click to inaugurate Robotronix Club">
+        <i class="fa-solid fa-rocket"></i> CLICK TO INAUGURATE
+    </button>
+
+    <!-- Inauguration Celebration Overlay -->
+    <div class="inaugurate-overlay" id="inaugurate-overlay" aria-hidden="true">
+        <div class="confetti-field" id="confetti-field"></div>
+        <div class="inaugurate-message">
+            <span class="inaugurate-emoji">🚀</span>
+            <h2>ROBOTRONIX CLUB</h2>
+        </div>
+    </div>
+
     <!-- All Sections Overlay Menu -->
     <div class="all-sections-overlay" id="all-sections-overlay">
         <div class="all-sections-header">
@@ -92,7 +106,7 @@
             <a href="#vision" class="all-sections-link">VISION & MISSION</a>
             <a href="#activities" class="all-sections-link">OUR ACTIVITIES</a>
             <a href="#team" class="all-sections-link">CLUB STRUCTURE</a>
-            <a href="#join" class="all-sections-link">CLUB MEMBERSHIP</a>
+            <a href="#connect" class="all-sections-link">CLUB MEMBERSHIP</a>
             <a href="#events" class="all-sections-link">JOURNEY</a>
             <a href="#projects" class="all-sections-link">PROJECTS</a>
             <a href="#collab" class="all-sections-link">COLLABORATION</a>
@@ -309,7 +323,7 @@ Our mission is simple: turn technical knowledge into practical capability</p>
                 </div>
                 <div class="footer-socials">
                     <h4>SOCIALS</h4>
-                    <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.linkedin.com/company/robotronix-club/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                     <a href="https://www.instagram.com/robotronixclub.mmit" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
                     <a href="https://mmit.edu.in/mechatronics-engineering/" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> MMIT Mechatronics</a>
                 </div>

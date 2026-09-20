@@ -479,3 +479,84 @@ else boot();
         setTimeout(() => bot.classList.remove("robot-blink"), 180);
     }, 4000 + Math.random() * 3000);
 })();
+
+/* =====================================================================
+   CLICK TO INAUGURATE — confetti burst + celebration overlay
+   ===================================================================== */
+(function initInaugurateButton() {
+    const btn = document.getElementById("inaugurate-btn");
+    const overlay = document.getElementById("inaugurate-overlay");
+    const confettiField = document.getElementById("confetti-field");
+    if (!btn || !overlay || !confettiField) return;
+
+    const CONFETTI_COLORS = ["#7fd1c1", "#2f8d7c", "#ffffff", "#141414", "#e2f4f0"];
+    let hideTimer = null;
+    let launched = false;
+
+    // Site starts blurred + locked (body already carries .pre-inaugurate from the HTML
+    // so it's blurred from first paint, no flash of the un-blurred site).
+    if (document.body.classList.contains("pre-inaugurate")) lenis.stop();
+
+    function spawnConfetti(count) {
+        confettiField.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+            const piece = document.createElement("span");
+            piece.className = "confetti-piece";
+            const left = Math.random() * 100;
+            const duration = 2.6 + Math.random() * 2.2;
+            const delay = Math.random() * 0.6;
+            const drift = (Math.random() - 0.5) * 220;
+            const color = CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)];
+            const size = 6 + Math.random() * 8;
+            piece.style.left = `${left}%`;
+            piece.style.background = color;
+            piece.style.width = `${size}px`;
+            piece.style.height = `${size * 1.6}px`;
+            piece.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
+            piece.style.setProperty("--drift", `${drift}px`);
+            piece.style.animationDuration = `${duration}s`;
+            piece.style.animationDelay = `${delay}s`;
+            fragment.appendChild(piece);
+        }
+        confettiField.appendChild(fragment);
+    }
+
+    // Ends the celebration and un-blurs the site (button is already gone by this point).
+    function revealSite() {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        document.body.classList.remove("pre-inaugurate");
+        document.body.classList.add("inaugurated");
+        lenis.start();
+
+        setTimeout(() => { confettiField.innerHTML = ""; }, 500);
+    }
+
+    function openCelebration() {
+        if (launched) return;
+        launched = true;
+
+        // Button disappears the instant it's clicked, before the celebration plays.
+        btn.classList.add("inaugurate-btn-hide");
+        setTimeout(() => { btn.style.display = "none"; }, 300);
+
+        spawnConfetti(prefersReducedMotion ? 0 : 90);
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+
+        // Same celebration animation plays, then the site reveals itself automatically.
+        hideTimer = setTimeout(revealSite, prefersReducedMotion ? 1200 : 4200);
+    }
+
+    btn.addEventListener("click", openCelebration);
+    // Once launched, tapping the overlay (or Escape) skips straight to the reveal.
+    overlay.addEventListener("click", () => { if (launched) revealSite(); });
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && launched && overlay.classList.contains("open")) revealSite();
+    });
+})();
